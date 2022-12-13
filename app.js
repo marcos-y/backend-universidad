@@ -6,6 +6,13 @@ var logger = require('morgan');
 var cors = require('cors');
 var app = express();
 
+require('dotenv').config()
+const mysql = require('mysql2')
+const connection = mysql.createConnection(process.env.DATABASE_URL)
+console.log('Connected to PlanetScale!')
+connection.end()
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var alumnosRouter = require('./routes/alumnos');
