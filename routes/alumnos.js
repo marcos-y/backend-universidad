@@ -40,7 +40,7 @@ db = mysql.createPool({
 
 /* Alumnos */
 //get Alumnos
-const getAlumnos = (req, res, next) => {
+const getAlumnosPromocionados = (req, res, next) => {
   let sql = `SELECT id_alumno, alumnos.nombre, alumnos.apellido, alumnos.anio, COUNT(*) as materias_aprobadas FROM notas
             left join alumnos
             on  notas.id_alumno = alumnos.id
@@ -50,6 +50,6 @@ const getAlumnos = (req, res, next) => {
       res.json(data)
   })
 }
-router.get('/' , getAlumnos);
+router.get('/' , getAlumnosPromocionados);
 
 module.exports = router;
