@@ -39,7 +39,7 @@ db = mysql.createPool({
 */}
 
 /* Alumnos */
-//get Alumnos
+//get Alumnos (se aprueba cada materia con 6)
 const getAlumnosPromocionados = (req, res, next) => {
   let sql = `SELECT id_alumno, alumnos.nombre, alumnos.apellido, alumnos.anio, COUNT(*) as materias_aprobadas FROM notas
             left join alumnos
